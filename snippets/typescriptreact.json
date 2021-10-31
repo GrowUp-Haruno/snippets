@@ -1,0 +1,50 @@
+{
+  "Print to console": {
+    "prefix": "log",
+    "body": ["console.log('$1');", "$2"],
+    "description": "Log output to console"
+  },
+
+  "React Component(no-props) set": {
+    "prefix": "react-component",
+    "body": [
+      "import {FC} from 'react'",
+      "",
+      "//Propsの型定義",
+      "type PropsType = {",
+      "\t",
+      "}",
+      "",
+      "const ${TM_FILENAME_BASE/(^.)/${1:/upcase}/}:FC = () => (",
+      "\treturn (",
+      "\t\t$2",
+      "\t) ",
+      ")",
+      "",
+      "${TM_FILENAME_BASE/(^.)/${1:/upcase}/}.displayName = '${TM_FILENAME_BASE/(^.)/${1:/upcase}/}'",
+      "export default ${TM_FILENAME_BASE/(^.)/${1:/upcase}/}"
+    ],
+    "description": "Reactコンポーネントの雛形を呼び出す"
+  },
+  "React Component set": {
+    "prefix": "react-component-noprops",
+    "body": [
+      "import {FC} from 'react'",
+      "",
+      "//Propsの型定義",
+      "//type PropsType = {",
+      "//\t",
+      "//}",
+      "",
+      "const ${TM_FILENAME_BASE/(^.)/${1:/upcase}/}:FC<PropsType> = (${1:props}) => {",
+      "\treturn (",
+      "\t\t$2",
+      "\t) ",
+      "}",
+      "",
+      "${TM_FILENAME_BASE/(^.)/${1:/upcase}/}.displayName = '${TM_FILENAME_BASE/(^.)/${1:/upcase}/}'",
+      "export default ${TM_FILENAME_BASE/(^.)/${1:/upcase}/}"
+    ],
+    "description": "Reactコンポーネントの雛形を呼び出す"
+  }
+}
